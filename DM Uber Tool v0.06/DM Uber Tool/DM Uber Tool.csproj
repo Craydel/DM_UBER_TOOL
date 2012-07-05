@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5CDE1343-279E-41D3-86E5-A7CA5407DAFB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DM_Uber_Tool</RootNamespace>
+    <AssemblyName>DM Uber Tool</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DM_Uber_Tool.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modules\DragonGen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DragonGen.Designer.cs">
+      <DependentUpon>DragonGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Dice Roller\Dice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Dice Roller\Dice.Designer.cs">
+      <DependentUpon>Dice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DungeonGen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DungeonGen.Designer.cs">
+      <DependentUpon>DungeonGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Item Generator\LootGen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Item Generator\LootGen.Designer.cs">
+      <DependentUpon>LootGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\AbstractModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\AbstractModule.Designer.cs">
+      <DependentUpon>AbstractModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\IDmModule.cs" />
+    <Compile Include="Modules\Item Generator\DmItem.cs" />
+    <Compile Include="Modules\Item Generator\DmItemFactory.cs" />
+    <Compile Include="Modules\Item Generator\DmModuleItemGenerator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Item Generator\DmModuleItemGenerator.Designer.cs">
+      <DependentUpon>DmModuleItemGenerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\NPC Generator\DmModuleNPCGenerator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\NPC Generator\DmModuleNPCGenerator.Designer.cs">
+      <DependentUpon>DmModuleNPCGenerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\NPC Generator\DmNameGenerator.cs" />
+    <Compile Include="Modules\NPC Generator\DmNpc.cs" />
+    <Compile Include="Modules\NPC Generator\DmNpcFactory.cs" />
+    <Compile Include="Modules\NPC Generator\NPCGen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\NPC Generator\NPCGen.Designer.cs">
+      <DependentUpon>NPCGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Player.cs" />
+    <Compile Include="Modules\PlayerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\PlayerInfo.Designer.cs">
+      <DependentUpon>PlayerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Modules\Reader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Reader.Designer.cs">
+      <DependentUpon>Reader.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Modules\Dice Roller\Dice.resx">
+      <DependentUpon>Dice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DragonGen.resx">
+      <DependentUpon>DragonGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DungeonGen.resx">
+      <DependentUpon>DungeonGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Item Generator\LootGen.resx">
+      <DependentUpon>LootGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\AbstractModule.resx">
+      <DependentUpon>AbstractModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Item Generator\DmModuleItemGenerator.resx">
+      <DependentUpon>DmModuleItemGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\NPC Generator\DmModuleNPCGenerator.resx">
+      <DependentUpon>DmModuleNPCGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\NPC Generator\NPCGen.resx">
+      <DependentUpon>NPCGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\PlayerInfo.resx">
+      <DependentUpon>PlayerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Modules\Reader.resx">
+      <DependentUpon>Reader.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TODO.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

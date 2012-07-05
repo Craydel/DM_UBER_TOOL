@@ -1,0 +1,57 @@
+﻿Player Info Sheet:
+
+  1.  Change textboxes to masked text boxes where applicable - this will fix trying to validate a "character" vs an INT.
+  2.  
+
+
+
+  Dice Roller:
+
+  1. btn Save: Save contents of results box(lbresults) to an array.
+  2. btnRecall: Recall the contents of the saved array into the results box.
+  3. Add the +/- MOD function to the dice roll
+  4. format text in the listbox to show something to the effect of 
+      " D4 + 1 = 5
+																	 D4 + 1 = 3
+																	 D4 + 1 = 2
+																	 ----------
+																	 3D4 + 3 = 10"
+
+Reader:
+
+1. Anchor WebBrowser to form so that is resizes.
+
+
+==============================================================
+Dungeon Generator Module:
+  Floortypes
+    Floor
+    Wall
+    Door
+    DoorSecret
+    Trap
+  
+  ItemType
+    Table
+    Chair
+    Light
+    Chest
+    Cabinet
+    Bed
+    etc
+
+FoorTile
+{
+  FloorType fType // enum above
+  ItemType  iType // what object is in this space (chair, table, lamp, nothing, ect)
+
+  int X
+  int Y
+
+  // for pathing
+  int F
+  int G
+  int H
+
+  CompareTo()
+}
