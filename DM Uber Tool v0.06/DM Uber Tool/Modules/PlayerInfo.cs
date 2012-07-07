@@ -20,9 +20,14 @@ namespace DM_Uber_Tool
         /// </summary>
         /// <param name="inches"></param>
         /// <returns></returns>
-        static KeyValuePair<int, double> ToFeetInches(double inches)
+        //static KeyValuePair<int, double> ToFeetInches(double inches)
+        //{
+        //    return new KeyValuePair<int, double>((int)inches / 12, inches % 12);
+        //}
+
+        static string ToFeetInches(double inches)
         {
-            return new KeyValuePair<int, double>((int)inches / 12, inches % 12);
+          return string.Format("{0}' {1}\"", (int)inches / 12, inches % 12);
         }
 
         /// <summary>
@@ -40,6 +45,7 @@ namespace DM_Uber_Tool
             splitContainer1.Panel2Collapsed = true;
             this.Width = 365;
             lblACDexMod.Text = "0";
+            cboGender.SelectedIndex = 0;
 
             cboRace.Items.Clear();
             cboRace.Items.Add("Human");
@@ -97,18 +103,6 @@ namespace DM_Uber_Tool
         {
             get { return cboAlignment.Text; }
         }
-        private string armor
-        {
-            get { return txtArmor.Text; }
-        }
-        private string weapons
-        {
-            get { return txtWeapon.Text; }
-        }
-        private string notableItems
-        {
-            get { return txtNotable.Text; }
-        }
         private string strength
         {
             get { return txtSTR.Text; }
@@ -161,10 +155,7 @@ namespace DM_Uber_Tool
         {
             get { return txtWillPower.Text; }
         }
-        private string savemod
-        {
-            get { return txtSavingMod.Text; }
-        }
+
         private string armorclass
         {
             get { return txtArmorClass.Text; }
@@ -177,10 +168,7 @@ namespace DM_Uber_Tool
         {
             get { return txtAC_VsTouch.Text; }
         }
-        private string acmod
-        {
-            get { return txtACMods.Text; }
-        }
+
         private string damage
         {
             get { return txtCurrent_HP.Text; }
@@ -256,9 +244,6 @@ namespace DM_Uber_Tool
             cboWeight.Text = currentPlayer.Weight;
             cboDiety.Text = currentPlayer.Diety;
             cboAlignment.Text = currentPlayer.Alignmnt;
-            txtArmor.Text = currentPlayer.Armor;
-            txtWeapon.Text = currentPlayer.Weapons;
-            txtNotable.Text = currentPlayer.NotableItems;
             txtSTR.Text = currentPlayer.Strength;
             txtDEX.Text = currentPlayer.Dexterity;
             txtCON.Text = currentPlayer.Constitution;
@@ -272,11 +257,9 @@ namespace DM_Uber_Tool
             txtFortitude.Text = currentPlayer.Fortitude;
             txtReflex.Text = currentPlayer.Reflex;
             txtWillPower.Text = currentPlayer.Will;
-            txtSavingMod.Text = currentPlayer.Savemod;
             txtArmorClass.Text = currentPlayer.Armorclass;
             txtAC_FlatFoot.Text = currentPlayer.FlatFoot;
             txtAC_VsTouch.Text = currentPlayer.Touch;
-            txtACMods.Text = currentPlayer.Acmod;
             txtCurrent_HP.Text = currentPlayer.Damage;
             txtTotal_HP.Text = currentPlayer.Hitpoints;
             txtSub_Dual.Text = currentPlayer.Subdual;
@@ -340,7 +323,7 @@ namespace DM_Uber_Tool
             }
             else if (sender == mtbBase_DEX || sender == mtbTemp_DEX)
             {
-                txtDEX.Text = (int.Parse(mtbBase_DEX.Text) + int.Parse(mtbTemp_DEX.Text)).ToString(); ;
+                txtDEX.Text = (int.Parse(mtbBase_DEX.Text) + int.Parse(mtbTemp_DEX.Text)).ToString(); 
             }
             else if (sender == mtbBase_CON || sender == mtbTemp_CON)
             {
@@ -367,27 +350,23 @@ namespace DM_Uber_Tool
         /// <param name="e"></param>
         private void txtMaskBox_Enter(object sender, System.EventArgs e)
         {
+          //if (!String.IsNullOrEmpty(((MaskedTextBox)sender).Text))
+          //{
+          //  ((MaskedTextBox)sender).SelectionStart = 0;
+          //  ((MaskedTextBox)sender).SelectionLength = textBox1.Text.Length;
+          //}  
+          try
+          {
+            ((MaskedTextBox)sender).Focus();
+            this.BeginInvoke((MethodInvoker)delegate()
+            {
             ((MaskedTextBox)sender).SelectAll();
-            //if (!String.IsNullOrEmpty(txtBox.))
-            //{
-            //  textBox1.SelectionStart = 0;
-            //  textBox1.SelectionLength = textBox1.Text.Length;
-            //}
-        }
-
-        /// <summary>
-        /// Upon entering textbox highlight all contents
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtBox_Enter(object sender, System.EventArgs e)
-        {
-            ((MaskedTextBox)sender).SelectAll();
-            //if (!String.IsNullOrEmpty(txtBox.))
-            //{
-            //  textBox1.SelectionStart = 0;
-            //  textBox1.SelectionLength = textBox1.Text.Length;
-            //}
+            });
+          }
+          catch (Exception ex)
+          {
+            string temp = ex.Message;
+          }
         }
 
 
@@ -433,9 +412,6 @@ namespace DM_Uber_Tool
             currentPlayer.Weight = weight;
             currentPlayer.Diety = diety;
             currentPlayer.Alignmnt = alignmnt;
-            currentPlayer.Armor = armor;
-            currentPlayer.Weapons = weapons;
-            currentPlayer.NotableItems = notableItems;
             currentPlayer.Strength = strength;
             currentPlayer.Dexterity = dexterity;
             currentPlayer.Constitution = constitution;
@@ -449,11 +425,9 @@ namespace DM_Uber_Tool
             currentPlayer.Fortitude = fortitude;
             currentPlayer.Reflex = reflex;
             currentPlayer.Will = will;
-            currentPlayer.Savemod = savemod;
             currentPlayer.Armorclass = armorclass;
             currentPlayer.FlatFoot = flatfoot;
             currentPlayer.Touch = touch;
-            currentPlayer.Acmod = acmod;
             currentPlayer.Damage = damage;
             currentPlayer.Hitpoints = hitpoints;
             currentPlayer.Subdual = subdual;
@@ -522,7 +496,7 @@ namespace DM_Uber_Tool
         /// <param name="e"></param>
         private void Race_Gender_Changed(object sender, EventArgs e)
         {
-            string gender = cboGender.Text == "F" ? "M" : "F";
+            string gender = (cboGender.Text == "M" ? "M" : "F");
             string size = "";
 
             int beginWeight = 0;
@@ -540,10 +514,10 @@ namespace DM_Uber_Tool
                 //Human, male	    4' 10"	    +2d10	    120 lb.	    x (2d4) lb.
                 //Human, female	    4' 5"	    +2d10	    85 lb.	    x (2d4) lb.
 
-                beginHeight = gender == "M" ? (4 * 12 + 5 + 2) : (4 * 12 + 10 + 2);
-                endHeight = gender == "M" ? (4 * 12 + 5 + 18) : (4 * 12 + 10 + 18);
-                beginWeight = gender == "M" ? 85 : 120; // minimum weight for male/female 
-                endWeight = gender == "M" ? 285 : 320; // = max base weight + (max HeightMod x max WeightMod)
+                beginHeight = gender == "F" ? (4 * 12 + 5 + 2) : (4 * 12 + 10 + 2);
+                endHeight = gender == "F" ? (4 * 12 + 5 + 18) : (4 * 12 + 10 + 18);
+                beginWeight = gender == "F" ? 85 : 120; // minimum weight for male/female 
+                endWeight = gender == "F" ? 285 : 320; // = max base weight + (max HeightMod x max WeightMod)
                 beginAge = 19; // gender neutral
                 endAge = 110; // gender neutral
                 size = "M";
@@ -554,10 +528,10 @@ namespace DM_Uber_Tool
                 //Dwarf, male	    3' 9"	  +2d4	  130 lb.	    x (2d6) lb.
                 //Dwarf, female	    3' 7"	  +2d4	  100 lb.	    x (2d6) lb.
 
-                beginHeight = gender == "M" ? (3 * 12 + 7 + 2) : (3 * 12 + 9 + 2);
-                endHeight = gender == "M" ? (3 * 12 + 7 + 2 + 6) : (3 * 12 + 7 + 2 + 6);
-                beginWeight = gender == "M" ? 100 : 130; // minimum weight for male/female 
-                endWeight = gender == "M" ? 196 : 226; // = max base weight + (max HeightMod x max WeightMod)
+                beginHeight = gender == "F" ? (3 * 12 + 7 + 2) : (3 * 12 + 9 + 2);
+                endHeight = gender == "F" ? (3 * 12 + 7 + 2 + 6) : (3 * 12 + 7 + 2 + 6);
+                beginWeight = gender == "F" ? 100 : 130; // minimum weight for male/female 
+                endWeight = gender == "F" ? 196 : 226; // = max base weight + (max HeightMod x max WeightMod)
                 beginAge = 58; // gender neutral
                 endAge = 450; // gender neutral
                 size = "M";
@@ -568,10 +542,10 @@ namespace DM_Uber_Tool
                 //Elf, male	        4' 5"	    +2d6	    85 lb.	    x (1d6) lb.
                 //Elf, female	    4' 5"	    +2d6	    80 lb.	    x (1d6) lb.
 
-                beginHeight = gender == "M" ? 55 : 55;
-                endHeight = gender == "M" ? (55 + 10) : (55 + 10);
-                beginWeight = gender == "M" ? 85 : 120; // minimum weight for male/female 
-                endWeight = gender == "M" ? 152 : 157; // = max base weight + (max HeightMod x max WeightMod)
+                beginHeight = gender == "F" ? 55 : 55;
+                endHeight = gender == "F" ? (55 + 10) : (55 + 10);
+                beginWeight = gender == "F" ? 85 : 120; // minimum weight for male/female 
+                endWeight = gender == "F" ? 152 : 157; // = max base weight + (max HeightMod x max WeightMod)
                 beginAge = 134; // gender neutral
                 endAge = 750; // gender neutral
                 size = "M";
@@ -582,10 +556,10 @@ namespace DM_Uber_Tool
                 //Gnome, male	    3' 0"	+2d4	   40 lb.	    x 1 lb.
                 //Gnome, female	    2' 10"	+2d4	   35 lb.	    x 1 lb.
 
-                beginHeight = gender == "M" ? 36 : 38;
-                endHeight = gender == "M" ? (36 + 6) : (38 + 6);
-                beginWeight = gender == "M" ? 35 : 40; // minimum weight for male/female 
-                endWeight = gender == "M" ? 43 : 48; // = max base weight + (max HeightMod x max WeightMod)
+                beginHeight = gender == "F" ? 36 : 38;
+                endHeight = gender == "F" ? (36 + 6) : (38 + 6);
+                beginWeight = gender == "F" ? 35 : 40; // minimum weight for male/female 
+                endWeight = gender == "F" ? 43 : 48; // = max base weight + (max HeightMod x max WeightMod)
                 beginAge = 64; // gender neutral
                 endAge = 500; // gender neutral
                 size = "S";
@@ -596,10 +570,10 @@ namespace DM_Uber_Tool
                 //Half-elf, male	  4' 7"	  +2d8	  100 lb.	x (2d4) lb.
                 //Half-elf, female	4' 5"	  +2d8	   80 lb.	x (2d4) lb.
 
-                beginHeight = gender == "M" ? 55 : 57;
-                endHeight = gender == "M" ? (55 + 14) : (57 + 14);
-                beginWeight = gender == "M" ? 80 : 100; // minimum weight for male/female 
-                endWeight = gender == "M" ? 208 : 228; // = max base weight + (max HeightMod x max WeightMod)
+                beginHeight = gender == "F" ? 55 : 57;
+                endHeight = gender == "F" ? (55 + 14) : (57 + 14);
+                beginWeight = gender == "F" ? 80 : 100; // minimum weight for male/female 
+                endWeight = gender == "F" ? 208 : 228; // = max base weight + (max HeightMod x max WeightMod)
                 beginAge = 26; // gender neutral
                 endAge = 185; // gender neutral
                 size = "M";
@@ -610,10 +584,10 @@ namespace DM_Uber_Tool
                 //Half-orc, male	  4' 10"	+2d12	  150 lb.	x (2d6) lb.
                 //Half-orc, female	4' 5"	  +2d12	  110 lb.	x (2d6) lb.
 
-                beginHeight = gender == "M" ? 55 : 60;
-                endHeight = gender == "M" ? (55 + 22) : (60 + 22);
-                beginWeight = gender == "M" ? 110 : 150; // minimum weight for male/female 
-                endWeight = gender == "M" ? 398 : 438; // = max base weight + (max HeightMod x max WeightMod)
+                beginHeight = gender == "F" ? 55 : 60;
+                endHeight = gender == "F" ? (55 + 22) : (60 + 22);
+                beginWeight = gender == "F" ? 110 : 150; // minimum weight for male/female 
+                endWeight = gender == "F" ? 398 : 438; // = max base weight + (max HeightMod x max WeightMod)
                 beginAge = 18; // gender neutral
                 endAge = 80; // gender neutral
                 size = "M";
@@ -624,10 +598,10 @@ namespace DM_Uber_Tool
                 //Halfling, male	  2' 8"	  +2d4	   30 lb.	x 1 lb.
                 //Halfling, female	2' 6"	  +2d4	   25 lb.	x 1 lb.
 
-                beginHeight = gender == "M" ? 32 : 34;
-                endHeight = gender == "M" ? (32 + 6) : (34 + 6);
-                beginWeight = gender == "M" ? 25 : 30; // minimum weight for male/female 
-                endWeight = gender == "M" ? 33 : 38; // = max base weight + (max HeightMod x max WeightMod)
+                beginHeight = gender == "F" ? 32 : 34;
+                endHeight = gender == "F" ? (32 + 6) : (34 + 6);
+                beginWeight = gender == "F" ? 25 : 30; // minimum weight for male/female 
+                endWeight = gender == "F" ? 33 : 38; // = max base weight + (max HeightMod x max WeightMod)
                 beginAge = 28; // gender neutral
                 endAge = 200; // gender neutral
                 size = "S";
