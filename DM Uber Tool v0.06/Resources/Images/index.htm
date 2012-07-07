@@ -1,0 +1,425 @@
+<html>
+<head>
+<title>Instant Dragon Generator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+<!-- Programmed by Mark A Jindra (markjindra@hotmail.com) -->
+var NS = (document.layers) ? 1 : 0;
+var NS6 = (document.getElementById) ? 1 : 0;
+var IE = (document.all) ? 1 : 0;
+
+var dtypes = new Array("Black","Blue","Green","Red","White","Brass","Bronze","Copper","Gold","Silver");
+
+var dcrvals = new Array("2","3","4","6","8","10","13","15","17","18","19","21","2","3","5","7","10","13","15","17","18","20","22","24","2","3","4","7","10","12","15","17","18","20","21","23","3","4","6","9","12","14","17","19","20","22","23","25","1","2","3","5","7","9","11","14","16","17","18","20","2","3","5","7","9","11","14","16","18","19","20","22","2","4","6","8","11","14","16","18","19","21","22","24","2","4","6","8","10","13","15","18","19","21","22","24","4","6","8","10","13","15","18","20","21","23","24","26","3","4","6","9","12","14","17","19","20","22","23","25");
+
+var dage = new Array("Wyrmling","Very Young","Young","Juvenile","Young Adult","Adult","Mature Adult","Old","Very Old","Ancient","Wyrm","Great Wyrm")
+
+var dlair = new Array("A stinking, polluted marsh spreads out before you. Vines and creepers dangle from solitary trees that seem to leer. The mostly-eaten carcass of a large fish floats nearby, and a small army of flies works on what's left. Off in the distance, something roars . . . something predatory.","Taking shelter from the desert's wrath in a low, wide cave, you sense you are being watched. A mottled lizard, two feet long, sits on a rock while it, too, rides out the sandstorm. It flicks its tongue at you lazily. You then notice a large opening in the darkest part of the cave. Does the little lizard know what lies beyond . . . ?","An old forest, with massive trees that seem to touch the sky, dominates the view. A fine mist hangs over the place, even though a gentle breeze gusts once in a while. The elves warned you not to enter, despite the rumors of a vast, unclaimed hoard. Funny -- why would they warn you against entering a forest that isn't theirs?","The dense, old forest seems to trap the heat under its vast canopy, keeping the temperature unnaturally high. Less-than-hardy vegetation lies wilted and dead all about, and even the tallest trees and most resilient scrub brush seems to struggle. A low moan sounds off and on, not coming from any direction in particular. It's as though the forest were calling out for water . . . water . . . water. A scrawny chipmunk skitters across a branch high above you, and you could swear it is eyeing the flask of water slung at your side.","A vast glacier, creeping down a towering mountain, has buckled and splintered, forming a strangely beautiful ice fortress. Bits and pieces of ice twinkle and shine all along the outer walls, giving it an almost magical appearance. A rough arch leads to the inner courtyard, where you notice that there is no keep, but a huge, gaping hole in the earth. What lies beneath?","You stumble upon a great temple, half-buried in the shifting sands of the desert. The temple façade is sand-blasted smooth and clean, leaving no clue to the identity of the god in question. Massive brass portals stand before you, and swing open quite soundlessly and easily for you. The doors softly close behind you, shutting out the blowing sands and braying wind. Sun fills the temple proper through massive panes of colored glass that have remained totally intact throughout the years. As you stand there, adjusting to the silence and basking in the warm light, you hear muted sounds of conversation. Edging closer, you peer around a corner and gaze upon a halfling. The little one is clad in green half-plate, wears a large (for a halfling) sword strapped across her slender back, and sips from a teacup while munching on sweetcakes. Oh -- and she's talking to a rather pleasant-looking brass dragon.","A lighthouse stands on a wind-swept bluff, staring out into the sea. A magical light blazes forth every half-minute, even on the darkest of nights and in the worst of storms, warning ships to avoid the treacherous shoals that lie below. Far beneath the lighthouse stretch a series of interconnected caves that leads to a single vast cavern: the bronze dragon's lair.","The dry, rocky uplands have so far proved to be a major hassle to traverse. Loose rock makes poor footing for hoof and foot alike. Even worse, the shadows hide any number of vermin and predators ready to snatch the unwary. Without warning, a giant scorpion rears up and starts to charge you. It's a big one, all right: 20 feet long, 10 feet wide, and 3 feet tall. The stinger dances 10 feet above and behind it, ready to lash forward. It scrabbles across the rock toward you. Even quicker, though, is the long neck and toothy maw that reaches from behind a huge boulder to grab the scorpion in one fluid strike. The scorpion's shell collapses in a sickening crunch of chitin, while blood and viscera showers you in a gory mist. The creature twitches once and slumps in the mouth a coppery dragon. The wyrm grins at you, winks, and retires from sight to munch on its prize.","An abandoned temple to a long-lost god sits high amongst the mountaintops, enveloped by white, billowing clouds. The setting is serene and peaceful. The temple walls stand high and unbroken, and the many statues of men and women seem to slowly dance and sway, emanating comfort. For some reason, you are not at all surprised when a silvery-skinned, 9-foot-tall winged humanoid materializes in front of you from nowhere. The solar clasps her hands behind her back, and speaks to you in a voice that is used to issuing commands that get followed: \"If you would please follow me?\" She then turns and walks briskly into the temple, where she indicates a smooth, polished marble pew where she wishes you to sit. In the center of the temple proper, a regal gold dragon holds an animated conversation with a gnome clad from head to toe in gleaming blue mithral mail, while an aasimar knight looks on intently, his slender fingers forming a steeple that touches his chin as he gazes intently upon the two before him.","You stand on a billowing cluster of pure white clouds. Though one might expect the surface to resemble spongy moss, it actually feels a lot like good old terra firma. More unusual, however, are the piles of treasure defying gravity all around you? A hoard -- thousands of coins and fantastic jewels and gems -- lies pooled in a dip in the clouds. \"Please, have a seat,\" the silver dragon chirps. \"It's been awhile since I've had any company in my home, but after you fed me that tasty meal last night, I just had to have you over!\" Of course last night, the dragon was a rather attractive peasant woman with the same pleasant, chirpy voice who approached your camp around mealtime. She had a ravenous appetite for such a petite frame, and talked easily of politics, farming, and elf-lore.","A foul bog ruins the natural beauty of the landscape. Tall, thin, black trees seem to be the only flora that have managed to survive. The crows that perch on the scraggly branches gaze at you impassively, perhaps wondering if they will have a chance to feed on your carcass before the bog claims it.","You fall through the dry, crackling topsoil near the parched oasis. A pile of soft, fine sand cushions your impact. The light spilling in from above reveals a vast tomb under the desert sands. The air crackles with energy, the kind that makes the fine hairs on your neck and arms stand up. A mound of skulls sits near the edge of darkness. Where are the bones that belong to those skulls?","A wood so thick that the forest floor rarely sees daylight nestles in the shadows of the mountains. Entering, you find your movements muffled by the thick layer of branches and needles that lie on the ground. There isn't much sound, other than the muted tramp of your boots. Ahead, you spy something -- the skeleton of an elf. It appears she was moving in your direction when she was struck down. Of course this is hard to determine with certainty, as she is missing her lower half from below the ribcage.","The small but jagged hills prove an obstacle in more ways than one. They seem to launch sheets of slate at you at random times, or try to drop you into the sharp, rocky gullies if you don't watch every step. Small fissures here and there leak noxious sulfuric steam, and the whole place reeks of smoke and ash. A black beetle as big as your hand glares at you from its little cave, revealing the leering red demon face pattern on its shell. The cave you seek is rumored to be nearby. If legend is true, it holds a king's ransom in gold and enough magic items to equip an army. But where is it?","An ice cave in the base of a frigid mountain glitters with light dancing off the thick sheets of ice that layer the surfaces. Further in, the light also sparkles off countless gems and coins frozen into the walls, ceiling and floors. Scattered amongst the treasures are the remains of countless victims of someone's or something's cruelty . . .","An inviting desert oasis beckons to you after days of monotonous trekking. As you draw closer, you notice an unusual sight: a dragon, a brass dragon that is, lies on its back near the edge of the oasis, motionless except for its long tail swishing back and forth in the clear water. Sensing you, the dragon cranes its neck and peers from nearly closed eyes. \"Hello,\" it croons. \"Have you come to share some stories with me as you refresh yourselves? Come, stay awhile. The sun is most invigorating this time of day!\"","A long, narrow, deep lake conceals a cave entrance below the waterline. You would have walked right past it had a large shadow not emerged from it. The shadow quickly disappeared into the depths, only to reappear in a huge explosion of water as the creature emerged like a great ballista bolt launched from the depths of the lake. As water drips from your clothes and armor, a glistening bronze dragon lands 10 meters in front of you. \"Hail and well met!\" it booms. \"Are you off to battle some great evil? Perhaps on your way to join a famous army embarking on a righteous crusade? Did I ever tell you about the time I fought Nenad the Black? Well, there I was . . .\"","The cave lies in a dry riverbed where the hills end and the desert begins. It twists and turns, winding between stalagmites, stalactites, and thick stone pillars. You have to climb over some low stone walls, and scale a few high ones as well. If it weren't for the drops of blood you follow, it would be very easy to get lost in here. Rounding a smooth, curving wall, you arrive at the center of the cave/maze. The partially dismembered corpse of a large spider lies amidst a vast hoard that seems fairly well organized (as far as hoards generally go). A copper dragon pulls the still-twitching leg off the spider's corpse and munches on it contentedly. Eyeing you, the wyrm extends the half-eaten arachnid leg and says \"Care for some? It's gooood.\"","An ancient castle looms before you. Clean but worn pennants flutter from the tower tops, snapping in the breeze. No guards are visible on the walls or behind the parapets, yet the huge front gate lies open and unbarred. Instead of an inner keep, a massive dome fills the inner courtyard. The structure seems to be carved from one impossibly huge piece of stone, as you can detect no seams or cracks. A wide oval entrance appears to be the only way in, so you press onward. Inside, the dome smells faintly of incense and perhaps a hint of saffron. Three violet-skinned storm giants and one human are seated at a large table. They appear to be playing a rather spirited game of cards. The human looks up from his hand, smiles, and beckons you with a nod to approach. His eyes seem to lack pupils, and look like twin orbs of swirling, molten gold. His goatee is braided in a manner that reminds you of catfish whiskers. His skin has a decidedly golden tint, and you could swear that little gems sparkle and glitter just beneath his skin.","You find yourself perched on a huge cloud, standing before the open gates to a massive keep. Several hours pass without a person or creature entering your sight. The keep is quite clean, the furnishings both beautiful and functional -- not at all gaudy or pretentious. Any manner of being could live here, as the rooms contain beds of all sizes and shapes; other rooms lack beds but are filled with luxurious pillows, or even fresh, clean hay. In a modest room near the top of the keep, in one of the dazzling towers that rises above the whole complex, you discover an older gentleman. His slippered feet prop on an ottoman shaped like a claw of a red dragon, as he sits on a matching rocker, sipping from a small, fine snifter. \"Ah, there you are,\" he murmurs. \"I wondered if I would have to come find you myself! Please, take a load off, and join me in a drink. Oh, and if you have any seared lamb shanks in your provisions, would you mind sharing?\"","A rotting fen lies at the center of a deep, dark forest. The water is rank, and clouds of mosquitoes and other small bugs bite you repeatedly. Things, shadowy and indistinct, can be seen moving in the dark waters. Something bumps against your leg -- but it's only the scabbard of your sword . . . isn't it?","The dry, parched plains stretch on for miles around you. Small craters and trenches scar the land, as if some great force had tilled the worthless soil. Judging from their depth and size, the depressions could even be connected. Perhaps they lead to a large central cave? Or are they merely a random collection of tunnels and holes?","A cliff cave sits at least 50 feet above your head. Little pockets of fine mist cling to the cliff face, as if the cave were drooling. White specks dot various ledges on the way up, but it's hard to tell what they are. Could be bone chips. Or just flaky rock -- hard to tell.","A high, lonely mountaintop overlooks the valley you traversed two days ago. You can see everything for miles around, and if you were an eagle, you'd see even more. A ledge has been carved into the mountain just above you, but you cannot tell if it was formed by nature, claw, or tool. A large cave entrance stands close by, the perfect spot for a predator or guardian to survey comings and goings in the valley. Thin wisps of smoke curl out of the cave sporadically, but they don't smell like cooking fires -- they smell faintly of ash, sulfur, and brimstone. From deep within the cave comes the sound of rock grating on rock. At least, you think that's what you hear . . .","A frozen and wind-blasted mountaintop holds ancient snow and a cave entrance that offers shelter from the howling winds. Inside, your breath is visible and the temperature seems even colder than it was outside. The warmth drains from your limbs at an alarming rate, seeming to feed the always-hungry rock. The cold air is painful to breathe; your nose twitches as you start to freeze from the inside as well as out. Maybe it will get warmer just a bit further in . . .","The dry, rolling plains stretch out for mile after countless mile. The little dips and folds in the land could easily hide an ambush, but so far they've held nothing more than some rabbits and a badger, who wasted enough energy to open one eye, see you were only a band of travelers, and go back to its nap. Suddenly, a rather large dip in the earth reveals a brass dragon! The dragon is curled in a ball, the tip of its tail gently keeping time to some song heard only by the wyrm. \"Hello,\" the baritone voice rumbles. \"Would you care to rest a spell and perhaps chat a bit? I do love pleasant folk and good conversation!\" ","An extinct volcano now holds a shimmering emerald lake in its crater. Plying the green waters in a sturdy boat, you reach the small island in the middle of the lake. As you disembark, an otter pops out of a bush and regards you with a warm, quizzical look. It wrinkles its whiskers and vanishes from sight, only to emerge a second later and waddle towards you. Stopping but a handspan away, it sits up on its haunches and starts to . . . talk? \"Hello, brave adventurers,\" it chirps. \"Welcome to my island! Have you come to deliver news from the front, or perhaps discuss tactics for defeating a spear phalanx supported by archers?\" ","The cave set into the bluff overlooking the rocky terrain below is littered with bits and pieces of scorpions. Claws, stingers, legs and body segments of all sizes lie scattered about. Is this some secret place scorpions go to die? Or even scarier, the lair of something capable of eating the massive arachnids? The answer comes when you spy a copper dragon clinging to the cave ceiling quite comfortably. It uncoils its long neck, lowers its head, and gazes at you upside-down. \"A cleric, a monk, and a paladin walk into an inn and order drinks,\" the wyrm says pleasantly. \"The cleric has mead, the monk ale, and the paladin asks for dwarf stout. Get it? Dwarf . . . stout? Hahahahaha!\" The dragon laughs heartily at its own joke.","A giant tower sprouts from the plateau you just reached. Sturdy and squat, it commands a sweeping view for miles around. As you approach, the two winged lion statues flanking the doors stir to life and stretch their eaglelike wings. The lammasu sentries give you the once-over, then return to their watch duty, scanning the lands beyond. Inside the doors, a large chamber holds books, scrolls, maps, chests, and all manner of armor, weapons, and wealth. A man sits behind a simple desk, writing in an old tome. He looks ancient, yet his snow-white hair and pale skin are smooth as fine silk. He pushes his plain chair back a foot or two, and tugs at his clean, golden-yellow toga. Clasping his hands behind his head, he waits for you to speak.","The remote mountaintop presides over a vast, shimmering forest below. The summit offers a breathtaking, though dizzying, view. Following your climb, you drop your pack on the ground and sit on a rounded piece of smooth, metallic rock. \"I say,\" intones a deep, mellow voice, \"but do you mind? That's my tail you are seated upon.\" You spring to your feet, and lock eyes with a large, silver dragon. \"Thank you. I hope I didn't startle you too much. I get so few intelligent visitors up here. Forgive me if I came across as rude.\"","A loathsome swamp seethes and boils for mile after mile. The stench is awful, as if giants dug a great hole in the ground and filled it with waste, carrion, and refuse. The mud threatens to pull your footgear off, and a fine green film clings to you wherever you make contact with the water. Who told you there was a great treasure to be found here?","Scorched, dry hills dot the landscape like angry boils on an ettin's rump. Topping one of the rises, the next hill beyond sports a large cave near its base. Bones lie strewn about, and small scorpions and beetles scurry around them. A few whole skeletons can be seen here and there, but for the most part the collection is just a mish-mash of broken and shattered bones. Looks like mostly humanoids . . . mostly.","A cave, set into the hillside before you, vanishes into the darkness. Edging in a bit, your nose, throat, and eyes are assailed by the sting of chlorine. The hard, rough, rock of the cave floor has been repeatedly gouged by claws or tools or water . . . you know not which.","A ruined temple to an ancient god lies in the clearing. The statues and symbols have not been worn away by time, but desecrated by some great force or forces. Beyond the front doors, the roof has caved in, and a deep hole dominates what used to be the main floor of the temple. A faint whiff of sulfur and smoke rises from the hole. Is that a light way down there in the bottom of the hole? Is that even the bottom?","A yawning, deep crevasse splits an otherwise beautiful ice field. A narrow path winds its way around the perimeter of the hole, but looks very slick and very dangerous. It's hard to tell what lies at the bottom, which sits cloaked in shadows. As you work your way down, inch by inch, the ice takes on a distinct bluish tint. Bridges of blue ice stretch across the chasm, apparently leading to nowhere. A faint trickling of water echoes off the walls, creating a gentle symphony of sound. But the music ends abruptly with a loud cracking noise -- one of the ice bridges above you shatters and falls soundlessly into the depths.","Dry, sunny hills roll and undulate as they lead to the mountains in the distance. Sparse growth sprouts here and there, mostly low scrub and dry, scraggly trees that are more broad than tall. Ahead, a line of bushes makes a near-perfect line down the next hill. Then you realize that the \"bushes\" of the next hill are actually the spines of a brass dragon! The scaly one lies with its belly in a depression on the lee side of the hill, resting its head on top of the hill, with its tail up and atop the hill behind this one. One eye cracks open, and the wyrm . . . smiles at you? \"Why hello there, friends,\" the dragon says. \"I do hope that I'm not barring your progress! It's just that this is my favorite hill for sunning. Have you any news to spread? Tales to impart? Songs to be sung? I'm all ears!\"","The playful little sea lion leads you down into the depths to an underwater cave entrance. Passing through, you ascend up a smooth, kelp-lined passageway. You breach the surface, and once you clear the stinging saltwater from your eyes, you gaze upon a wondrous sight: a large, dry island sits in the middle of a vast underwater cavern. Coins, gems and riches of all sorts lie piled upon the island, along with banners, suits of armor, shields, and weapons both mundane and exotic. They are displayed with a collector's touch, or perhaps that of a grizzled campaigner, showing where he's been and who he's fought for and against. As you wander amongst the bounty, you remember the sea lion who led you here. Looking back, you are stunned to see that the sea lion has been replaced by the large, toothy grin of a bronze dragon . . .","Gasping for breath, you once again look up the sheer mountain face. With luck, the cave you spied earlier is not far off now. A sound from the right draws your attention: You nearly fall from your perch at the sight of a copper dragon gracefully leaping up the cliff alongside you. It vanishes from view, then pokes its head back over the ledge a few meters above you and smiles wickedly. \"Sorry to show off, but it's such a nice day! Will you be much longer? Wait, let me give you a hand . . . Oh, right -- I don't have hands. Hahahaha!\" the dragon laughs at its own bad joke.","A sprawling cave lies nearly a mile below the ground. It didn't strike you until now that the passages leading here were fairly tidy, and totally devoid of monsters--rather unusual for a cave this far beneath the earth. Soon, you detect sounds of work: picks on rock, hammers on stone, the songs and chants of workers. You reach the center of the cave to behold a half-dozen wiry deep gnomes sifting through a pile of gemstones nearly as tall as they are! Overseeing this activity is the kind and benevolent face of a beautiful gold dragon, who pops a rather nice blue star sapphire into his maw and chomps the gem contentedly.","A lonely mountaintop keep nestles in the saddle of two tall peaks. The castle shows wear, mostly from exposure, but is far from falling into disrepair. You see no pennants, standards or insignia. As you debate a frontal approach or perhaps something a little more stealthy, your dilemma is resolved. A single rider emerges from the gate and trots up to your position after a spirited gallop. Her long, braided ponytail settles across her polished breastplate, and she dips her lethal-looking lance in a salute. \"If you would kindly follow me, I will bring you to the lord of the keep. We have been expecting you for several days now, and my lord grows restless for your company.\" If pressed for more details, she reveals only that her name is Elillia, and she is Captain of the House Guard. And her lord? \"You will know him when you see him,\" is all she says on the subject. You observe that all the buckles and straps on her armor are crafted from finely-worked mithral, and bear the image of a soaring wyrm.","Deep underground, a dank, steamy cave reeks of methane and foul water. Here and there, slimy bones jut from the putrid sludge that covers the floor. A tiny crayfish snaps its claws at you, and its beady little eyes follow your every movement. You step on what feels like rotting wood, and nearly fall over when a skull bobs to the surface. The lower jaw is missing, and a good part of the upper half appears to have been sheared away. Muck oozes from the empty sockets, as if it were crying . . . even in death.","Deep underground, a vast, arid cavern opens before you. The floor is covered with fine sand that tends to pile near walls and pillars. Stark, white bones protrude from the sand . . . along with coins, gems, and baubles.","Deep underground, you enter a moss-filled cave. The greenery covers the floor and walls in a lush, living carpet. Ancient, gnarled roots weave together overhead. Here and there, small logs of an odd white wood lie covered with lichens and other greenery. Then you notice that they are not logs, but bones . . .","Deep underground, warm air flows past you in drafts. Condensation drips from the ceiling but seems to evaporate before it has a chance to gather on the ground. From a small rise in the tunnel issues a blast of superheated gases that cause your eyes to tear. Roiling pools of magma around you spew gouts of lava from time to time. A collection of flat, glossy, obsidian rocks makes a sort of path across the lava. Grinning skulls and shattered bones stand out in stark contrast to the black rock.","Deep underground, you enter a large cave that is noticeably colder than the surrounding warrens. The walls sparkle and glisten with frost and ice crystals, as if painted on by some frozen artist. Deeper in the cave, a few coins and gemstones lodge in the ice. After a few moments, you feel your gaze drawn to the ceiling -- where the skeleton of a dwarf screams at you in silence from her frigid tomb. She is not alone: Dozens of skeletons lie entombed in the ice, along with all the riches and gear that are no longer of use to them.","Deep underground, a warm, dry cave opens before you. The distinct odor of refined metal tickles your senses. Small, leafy plants dot the walls, twinkling with tiny droplets of water. A gleaming brass dragon lies atop a bed of wealth, eyes closed and massive claws crossed in front. Its tail wraps around, and you could swear the dragon is . . . purring? It opens one eye, yawns a great yawn, cocks its head and looks at you, eyes twinkling. The tip of its tail starts to rhythmically tap along with some unheard song. ","Deep underground, your path ends at a large pool of murky green water. Diving in, you swim as fast as possible, heading towards a faint glow just ahead. You emerge from the water, gasping for air. The rocky floor of the cave slopes upward, away from the water. The smell of the sea drifts faintly toward you. Small crustaceans skitter about, or poke wary heads out of their hidey-holes before darting back under cover.","Deep underground, your tunnel leads to a large cave. The path starts to twist and turn, and now you must choose among any number of directions. The first path you choose leads to a dead end. You backtrack and try another passage. How in the world did this maze get here?","Deep underground, the rough tunnel starts to take on a more distinct, worked shape. The walls are smooth and appear to have been hewn with great care and attention to detail. As you approach a set of great doors that stand at the end of the hallway, a pair of dwarves detach themselves from the walls (or so it would seem) to bar your way. \"Greetings,\" one of them calls out to you in Common. \"Have you business with the lord of the castle today?\" They are clad in bright mithral full plate, and carry mithral shields. One bears a fine warhammer, the other a gleaming dwarven waraxe. A voice on the other side of the doors sounds in deep, pleasant tones that seem to fill the very air with reassurance. \"Ah, visitors from afar! Do come in and stay a while!\" One of the doors swings soundlessly open, and the head of a gold dragon pokes through, smiling at you.","Deep underground, a cave opens up before you. A fine mist seems to fill the area, as if a large, peaceful cloud is caught here. The taste of a fresh spring rainfall dazzles your senses, and you feel very much relaxed and safe. A faint rustle of metal jars you back to reality, and that reality is the face of a silver dragon looking down upon you. It seems to be smiling. \"Ah, greetings to you!\" it says. \"Please come sit at my table, and talk with me if you would. Have you perchance brought some honey-cured pheasant with you?\"")
+
+
+
+<!-- Instant Dragon Code -->
+
+
+function instantdragon() {
+
+  var dcrcheck = new Array("0","0","0","0","0","0","0","0","0","0");
+  var dagecheck = new Array("0","0","0","0","0","0","0","0","0","0");
+  d = 0
+  age = 0
+  ftype = parseInt(document.form1.dtype.selectedIndex); 
+  fcrvalue = parseInt(document.form1.crvalue.value);       
+  
+  if (ftype == 1) {
+    while (fcrvalue == 1) {
+	   fcrvalue = prompt("The dragon of the chosen alignment may have a CR value of 2 - 26.",2);	
+	   document.form1.crvalue.value = fcrvalue
+	}
+  }
+  
+  if (ftype == 2) {
+    while (fcrvalue == 26) {
+	   fcrvalue = prompt("The dragon of the chosen alignment may have a CR value of 1 - 25.",25);
+	   document.form1.crvalue.value = fcrvalue
+	}	
+  } 
+
+  xtype = ftype
+  xcrvalue0 = fcrvalue	
+  xcrvalue1 = fcrvalue
+  xcrvalue2 = fcrvalue      
+	  
+  while (d == 0) {
+	
+	if (fcrvalue == 0) {
+	   var xcrvalue0 = Math.floor((Math.random() * 26) + 1);	
+	   var xcrvalue2 = Math.floor((Math.random() * 25) + 1);	
+   	   var xcrvalue1 = Math.floor((Math.random() * 25) + 2);	   		   
+    }
+	  
+    if (ftype == 0) {
+	   var xtype = Math.floor(Math.random() * 10);	
+       xcrvalue = xcrvalue0	   
+	} 
+	  
+	if (ftype == 1) {
+	   var xtype = Math.floor((Math.random() * 5) + 5);		
+       xcrvalue = xcrvalue1
+	}	 
+	  
+	if (ftype == 2) {
+	   var xtype = Math.floor(Math.random() * 5);
+       xcrvalue = xcrvalue2
+	}		
+	
+	for (dr=0; dr<10; dr++) {
+ 	   for (cr=0; cr<12; cr++) {
+	      dc = ((dr * 12) + cr); 
+	      if (dcrvals[dc] == xcrvalue) {  
+	      dcrcheck[dr] = 1;		  
+		  dagecheck[dr] = cr
+ 	      }	   
+	   }
+	}	
+  
+    if (dcrcheck[xtype] == 1) {  
+       age = dagecheck[xtype] 
+	   d = 1
+	}
+	
+    var xlair = Math.floor(Math.random() * 5);		
+    dl = ((xlair * 10) + xtype)
+	lair = dlair[dl]
+  }
+
+display("dragon", "<font class=\"content12\"><b>Dragon:</b> " + dtypes[xtype] + " " + dage[age] + "<br><b>Challenge Rating: </b>" + xcrvalue + "<br><b>Lair: </b>" + lair + "</font>");
+
+}
+
+
+
+<!-- Custom Dragon Code -->
+
+function customdragon() {
+  var dcvalid = new Array("0","0","0","0","0","0","0","0","0","0","0","0");
+  var dmvalid = new Array("0","0","0","0","0","0","0","0","0","0","0","0");
+  var dcrcheck = new Array("0","0","0","0","0","0","0","0","0","0");
+  content = ""
+  d = 0
+  c = 0
+  m = 0
+  y = 0
+  age = 0
+  mage = 0
+  yage = 0
+  ftype = parseInt(document.form1.ctype.selectedIndex); 
+  fcrrange = parseInt(document.form1.crrange.value);  
+  fmate = parseInt(document.form1.cmate.value); 
+  fyoung = parseInt(document.form1.cyoung.value);          
+  
+  if (ftype == 8) {
+    while (fcrrange == 0) {
+	   alert("The Gold dragon may have a CR of 4 - 26.\nThe range has been increased to 4-6.");	
+	   document.form1.crrange.value = 1
+	   fcrrange = 1
+	}
+  }
+  
+  xtype = ftype
+  xcrrange = fcrrange	
+  xmate = fmate
+  xyoung = fyoung      
+
+  if (xcrrange == 0) {
+     clow = 1
+	 mlow = 1
+	 chigh = 3
+	 mhigh = 6
+  }
+  if (xcrrange == 1) {
+     clow = 4
+	 mlow = 1
+	 chigh = 6
+	 mhigh = 9
+  }
+  if (xcrrange == 2) {
+     clow = 7
+	 mlow = 4
+	 chigh = 9
+	 mhigh = 12
+  }
+  if (xcrrange == 3) {
+     clow = 10
+	 mlow = 7
+	 chigh = 12
+	 mhigh = 15
+  }
+  if (xcrrange == 4) {
+     clow = 13
+	 mlow = 10
+	 chigh = 15
+	 mhigh = 18
+  }
+  if (xcrrange == 5) {
+     clow = 16
+	 mlow = 13
+	 chigh = 18
+	 mhigh = 21
+  }
+  if (xcrrange == 6) {
+     clow = 19
+	 mlow = 16
+	 chigh = 26
+	 mhigh = 26
+  }
+
+  for (cr=0; cr<12; cr++) {
+	dc = ((xtype * 12) + cr); 
+	if (dcrvals[dc] >= clow) {  
+      if (dcrvals[dc] <= chigh) { 
+ 	     dcvalid[cr] = dcrvals[dc];		  
+ 	  }
+ 	}	   
+  }
+
+  while (c == 0) {
+     var xch = Math.floor(Math.random() * 12); 
+        if (dcvalid[xch] >= 1) {
+	       xcrvalue = dcvalid[xch];
+	       c = 1;
+	    }   
+  }
+
+  for (cr=0; cr<12; cr++) {
+	dc = ((xtype * 12) + cr); 
+	if (dcrvals[dc] >= mlow) {  
+      if (dcrvals[dc] <= mhigh) { 
+ 	     dmvalid[cr] = dcrvals[dc];		  
+ 	  }
+ 	}	   
+  }
+
+  while (m == 0) {
+     var xmchoose = Math.floor(Math.random() * 12);  
+     if (dcvalid[xmchoose] == 0) {
+     } else {
+	     xmcrvalue = dmvalid[xmchoose];
+	     m = 1
+	   }   
+  }
+  
+  for (cr=0; cr<12; cr++) {
+	 dc = ((xtype * 12) + cr); 
+	 if (dcrvals[dc] == xcrvalue) {  
+	   age = cr
+	 }
+  }	
+
+  var yng = Math.floor(Math.random() * 4) + 2;	
+  
+  while (y == 0) {
+     var ya = Math.floor(Math.random() * 3);	
+        if (ya <= age) {
+ 		  dc = ((xtype * 12) + ya); 
+		  ycrvalue = dcrvals[dc]; 
+		  yage = ya;
+		  y = 1
+		}        
+  }	
+	
+  for (cr=0; cr<12; cr++) {
+	 dc = ((xtype * 12) + cr); 
+	 if (dcrvals[dc] == xmcrvalue) {  
+	   mage = cr
+	 }
+   }	
+ 
+	
+ var xlair = Math.floor(Math.random() * 5);		
+ dl = ((xlair * 10) + xtype)
+ lair = dlair[dl]
+
+content = content + "<font class=\"content12\"><b>Dragon:</b> " + dtypes[xtype] + " " + dage[age] + "<br><b>Challenge Rating: </b>" + xcrvalue + "<br>"
+
+if (xmate == 0) {
+    content = content + "<b>Mate: </b>" + dage[mage] + "<b> CR: </b>" + xmcrvalue + "<br>" 
+}
+
+if (xyoung == 0) {
+    content = content + "<b>Young: </b>" + yng + "<b> Age: </b>" + dage[yage] + "<b> CR each: </b>" + ycrvalue + "<br>"
+}
+
+content = content + "<b>Lair: </b>" + lair + "</font>"  
+ 
+display("dragon", content);
+
+}
+
+
+
+<!-- Display Function -->
+
+
+function display(id, str) {
+
+  if (NS) {
+    with (document[id].document) {
+	  open();
+      write(str);
+      close();
+    }
+  } else if (NS6) {
+    document.getElementById(id).innerHTML = str;
+  }	else {
+    document.all[id].innerHTML = str;
+  }
+}
+
+
+// -->
+</SCRIPT>
+
+
+
+</head>
+
+<style type="text/css">
+.content10 {  font-family: Arial; font-size: 10px; color: #000000; text-decoration: none; line-height: 11px }
+.content12 {  font-family: Arial; font-size: 12px; color: #000000; text-decoration: none; line-height: 13px }
+.content14 {  font-family: Arial; font-size: 14px; color: #000000; text-decoration: none; line-height: 14px }
+.content18 {  font-family: Arial; font-size: 18px; color: #000000; text-decoration: none; line-height: 18px }
+.header18 {  font-family: Arial; font-size: 18px; text-decoration: none; line-height: 18px }
+</style>
+
+<body bgcolor="#DBD2A4" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" background="back2.jpg">
+
+<form method="post" action="" name="form1">
+<table border="0" width="400" cellpadding="2" cellspacing="0">
+  <tr bgcolor="#330000"> 
+    <td> 
+      <div align="center"><font face="Arial, Helvetica, sans-serif" size="3"><b><font color="#FFFFCC" class="header18">Instant 
+        Dragon Generator</font></b></font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <table border="0" cellspacing="6" cellpadding="0" width="400">
+        <tr bgcolor="#FFFFFF"> 
+          <td valign="top"> 
+              <table border="0" cellspacing="2" cellpadding="2" bgcolor="#FFFFFF" width="200" height="180">
+                <tr valign="top"> 
+                  <td colspan="2"><font class="content18"><b>Instant</b></font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td><font class="content12">Dragon 
+                    Alignment: </font></td>
+                  <td> 
+                    <select name="dtype" class="content12">
+                      <option value="0" selected>Random</option>					
+                      <option value="1">Good</option>
+                      <option value="2">Evil</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td><font class="content12">Challenge Rating:<br></font><font class="content10">(enter a number from<br>0 to 26, 0 = random)</font></td>
+                  <td> 
+                    <input type="text" name="crvalue" maxlength="2" size="2" value="0" class="content12">
+                  </td>
+                </tr>
+                <tr valign="bottom"> 
+                  <td colspan="2"> 
+                <div align="center"><a href="javascript:void(null)" onClick="instantdragon()"><img src="generate.jpg" width="84" height="24" border="0" alt="Generate" name="h0"></a> 
+                  </div></td></tr></table></td>
+          <td valign="top"> 
+
+              <table border="0" cellspacing="2" cellpadding="2" bgcolor="#FFFFFF" width="200" height="180">
+                <tr valign="top"> 
+                  <td colspan="2"><font class="content18"><b>Custom</b></font></td>
+                </tr>
+                <tr valign="top"> 
+                  <td><font class="content12">Dragon: 
+                    </font></td>
+                  <td> 
+                    <select name="ctype" class="content12">
+                      <option value="0" selected>Black</option>
+                      <option value="1">Blue</option>
+                      <option value="2">Green</option>	
+                      <option value="3">Red</option>	
+                      <option value="4">White</option>					  				  				  
+                      <option value="5">Brass</option>
+                      <option value="6">Bronze</option>
+                      <option value="7">Copper</option>
+                      <option value="8">Gold</option>
+                      <option value="9">Silver</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td><font class="content12">Challenge 
+                    Rating: </font></td>
+                  <td> 
+                    <select name="crrange" class="content12">
+                      <option value="0" selected>1-3</option>
+                      <option value="1">4-6</option>
+                      <option value="2">7-9</option>
+                      <option value="3">10-12</option>
+                      <option value="4">13-15</option>
+                      <option value="5">16-18</option>
+                      <option value="6">19-26</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td><font class="content12">Mate: 
+                    </font></td>
+                  <td> 
+                    <select name="cmate" class="content12">
+                      <option value="0">Yes</option>
+                      <option value="1" selected>No</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr valign="top"> 
+                  <td> 
+                    <p><font class="content12">Young: 
+                      </font></p>
+                  </td>
+                  <td> 
+                    <select name="cyoung" class="content12">
+                      <option value="0">Yes</option>
+                      <option value="1" selected>No</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr valign="bottom"> 
+                  <td colspan="2"> 
+                <div align="center"><a href="javascript:void(null)" onClick="customdragon()"><img src="generate.jpg" width="84" height="24" border="0" alt="Generate" name="h1"></a> 
+                  </div></td></tr></table></td>
+        <tr bgcolor="#FFFFFF"> 
+          <td valign="top" colspan="2"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" backgroundcolor"#FFFFFF">
+              <tr> 
+                <td height="260"> 
+                  <p><img src="spacer.jpg" width="1" height="260"></p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center"><font size="1" face="Arial, Helvetica, sans-serif">© 
+        2001 Wizards of the Coast, Inc. All rights reserved. </font></div>
+    </td>
+  </tr>
+</table>
+</form>
+<p><span id="dragon" style="position: absolute; top: 220px; left: 12px;; width: 400"></span></p>
+</body>
+</html>
