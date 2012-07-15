@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Generator;
+using DM_Uber_Tool;
 using System.IO;
 
 namespace DM_Uber_Tool

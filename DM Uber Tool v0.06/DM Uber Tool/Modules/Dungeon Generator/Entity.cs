@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Generator
+namespace DM_Uber_Tool
 {
   public abstract class Entity
   {

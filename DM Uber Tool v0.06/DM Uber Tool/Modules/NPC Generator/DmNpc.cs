@@ -116,7 +116,7 @@ namespace DM_Uber_Tool
     /// <returns></returns>
     public string GetDescription()
     {
-      return string.Format( "Name : {0} {19}\r\n" +
+      return string.Format( "Name : {0}\r\n" +
         /* */               "{1}, {2} and {3} {4} {5}, with {6} eyes and {7} {8} hair worn {9}" +
         /* */               "{10}.\r\n\r\n" +
         /* */               "Usually {11}, they are currently {12}, and in a(n) {13} mood.\r\n\r\n" +
@@ -152,8 +152,7 @@ namespace DM_Uber_Tool
        
         /* 16 */            GetArmorDescriptions(),
         /* 17 */            GetWeaponDescriptions(),
-        /* 18 */            GetEquipmentDescriptions(),
-        /* 19 */            "Booyah!!1!"
+        /* 18 */            GetEquipmentDescriptions()
                           );
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Generator
+namespace DM_Uber_Tool
 {
   /// <summary>
   /// Maze Type enum

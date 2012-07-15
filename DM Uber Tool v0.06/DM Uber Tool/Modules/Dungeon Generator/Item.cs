@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 
-namespace Generator
+namespace DM_Uber_Tool
 {
   /// <summary>
   /// Item class - loot!

@@ -1,57 +1,103 @@
-﻿Player Info Sheet:
+﻿=====================================================================
+General
 
-  1.  Change textboxes to masked text boxes where applicable - this will fix trying to validate a "character" vs an INT.
-  2.  
+[ ] Prefs file error handling
+      If the file exists and there is a path, some check should be done to ensure the path is correct (else it errors out anyway).
+
+      [ ] Dunegone Gen
+            Look for specific image (fllorTile.bmp, for example)
+            If not present, allow for cancel without crashing, re-request folder, whatever.
+
+      [ ] Reader
+            Less critical - it just refers to a list of files.  If non present, then there's nothing in the list
+
+      [ ] Character Sheet default save location
+            Not implimented - would be useful to specify location
+
+[ ] Prefs file specification
+      If the prefs file exists, but is incorrect, should allow us to choose a 
+        new one without having to actually find/delete the current one
+      We might need a global pref file for the DM Uber Tool to handle this sort of thing
+
+
+[ ] All modules should be able to point to a single directory (i.e "Resources"), and look for 
+    their required files within that structure (sub folder or whatever)
+      Migrate all pref files to a global DM_UberTool variable that, once loaded for any module, will be used for all modules.
+      Ties in with global prefs above
 
 
 
-  Dice Roller:
+=====================================================================
+Player Info Sheet:
 
-  1. btn Save: Save contents of results box(lbresults) to an array.
-  2. btnRecall: Recall the contents of the saved array into the results box.
-  3. Add the +/- MOD function to the dice roll
-  4. format text in the listbox to show something to the effect of 
-      " D4 + 1 = 5
-	D4 + 1 = 3
-	D4 + 1 = 2
-	----------
-	3D4 + 3 = 10"
+  [ ] Change textboxes to masked text boxes where applicable - this will fix trying to validate a "character" vs an INT.
+  [ ] 
 
+=====================================================================
+Dice Roller:
+
+  [ ] btn Save: Save contents of results box(lbresults) to an array.
+
+  [ ] btnRecall: Recall the contents of the saved array into the results box.
+
+  [ ] Add the +/- MOD function to the dice roll
+
+  [ ] format text in the listbox to show something to the effect of 
+      D4 + 1 = 5
+      D4 + 1 = 3
+      D4 + 1 = 2
+      ----------
+      3D4 + 3 = 10
+
+  [ ] NPC Character sheet button to open dice roller for that character's attacks/saves/etc
+
+=====================================================================
 Reader:
 
-1. Anchor WebBrowser to form so that is resizes.
+  [X] Anchor WebBrowser to form so that is resizes.
+  [X] Preferences for Resources path
+        NOTE - enhancements for later mentioned in General above
 
 
 ==============================================================
 Dungeon Generator Module:
-  Floortypes
-    Floor
-    Wall
-    Door
-    DoorSecret
-    Trap
-  
-  ItemType
-    Table
-    Chair
-    Light
-    Chest
-    Cabinet
-    Bed
-    etc
 
-FoorTile
-{
-  FloorType fType // enum above
-  ItemType  iType // what object is in this space (chair, table, lamp, nothing, ect)
+  Initial upload complete
+  Features:
+    Selectable dungeon generation size (based on width x heigth "cells" at pathWidth wide
+    Editable dungeon (wall/door/floor placement)
 
-  int X
-  int Y
+  ToDo:
+    [ ] Save/Load format
 
-  // for pathing
-  int F
-  int G
-  int H
+    [ ] Load/Save default location (see General above for preferences/resources locations)
 
-  CompareTo()
-}
+    [ ] Traps in editor
+
+    [ ] Traps in generator
+
+    [ ] Items (chairs, tables, items, etc)
+          Cosmetic, used for display to players when entering a room
+
+    [ ] Tile set graphics for smaller tile size (icons not scaling well for tiny tile size viewing, 4px and 8px probably need work)
+          Load paths for tile size sets
+          Tiles for smaller sizes (graphic files)
+          Naming convention for tile size set (nice to have, not critical)
+
+    [ ] Castle Generation
+          User-specified room additions, one room at a time based on selected door
+
+    [ ] Cleanup drawing method
+          Change to draw to memory Bitmap rather than redrawing the whole thing one cell at a time (minimal impact)
+
+    [ ] Secondary display to show only rooms that players have seen
+          track Rooms to flag as "Visible" or not to non-DM
+          track trap floor tiles as Visible or not to non-DM
+          Second window to view on second screen/monitor for players
+
+    [ ] Multi-level Castles
+          Castle style build from ground up, 
+          Greatrooms stack (towers), 
+          User-editing to place rooms inside other stories
+          Multi-level view
+          Apply to Castle only - all others are mish-mash of underground style coverns.

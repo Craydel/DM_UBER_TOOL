@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Generator
+namespace DM_Uber_Tool
 {
   /// <summary>
   /// Maze cell object for use with Curcular mazes.

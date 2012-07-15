@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Generator
+namespace DM_Uber_Tool
 {
   /// <summary>
   /// FloorTile - base onject type for each tile in a maze

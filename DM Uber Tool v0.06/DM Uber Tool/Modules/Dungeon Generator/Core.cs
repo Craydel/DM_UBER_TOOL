@@ -7,13 +7,14 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Generator
+namespace DM_Uber_Tool
 {
   /// <summary>
   /// Main control class
   /// </summary>
   static class Core
   {
+    private static string prefFileName = "Prefs - Dungeon Generator.txt";
     public static string resourcesPath  = "";
 
     // List of floor tile images
@@ -143,25 +144,25 @@ namespace Generator
     public static void GetResourcesPath()
     {
       // read resourcesPath
-      if(!File.Exists(Application.StartupPath + "\\prefs.txt"))
+      if(!File.Exists(Application.StartupPath + "\\" + prefFileName))
       {
-        File.Create("prefs.txt").Close(); // create the file, and immediately release it
+        File.Create(prefFileName).Close(); // create the file, and immediately release it
       }
 
-      StreamReader reader = new StreamReader(Application.StartupPath + "\\prefs.txt");
+      StreamReader reader = new StreamReader(Application.StartupPath + "\\" + prefFileName);
       if((resourcesPath = reader.ReadLine()) == null || !(new DirectoryInfo(resourcesPath).Exists))
       {
         FolderBrowserDialog dlg = new FolderBrowserDialog();
         dlg.SelectedPath = Application.StartupPath;
-        dlg.Description = "Please locate the 'Sprites' directory (about 3 levels up from the debug directory) :";
+        dlg.Description = "Please locate the 'Resources' directory (about 3 levels up from the debug directory) :";
 
         if(dlg.ShowDialog() == DialogResult.Cancel)
           Application.Exit();
 
-        resourcesPath = dlg.SelectedPath;
+        resourcesPath = dlg.SelectedPath + "\\Sprites\\";
         reader.Close();
 
-        StreamWriter output = new StreamWriter(Application.StartupPath + "\\prefs.txt");
+        StreamWriter output = new StreamWriter(Application.StartupPath + "\\" + prefFileName);
         output.WriteLine(resourcesPath);
         output.Close();
       }
@@ -169,8 +170,6 @@ namespace Generator
       {
         reader.Close();
       }
-
-      Core.resourcesPath = resourcesPath;
     }
 
     /// <summary>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace Generator
+namespace DM_Uber_Tool
 {
   /// <summary>
   /// Generates a random maze of a requested or random style:
