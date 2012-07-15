@@ -28,37 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Mistral", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(671, 114);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Under Construction\r\n";
-            // 
-            // DungeonGen
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(706, 137);
-            this.Controls.Add(this.label1);
-            this.Location = new System.Drawing.Point(12, 9);
-            this.Name = "DungeonGen";
-            this.Text = "DungeonGen";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+      this.dmModuleDungeonGenerator1 = new DM_Uber_Tool.DmModuleDungeonGenerator();
+      this.SuspendLayout();
+      // 
+      // dmModuleDungeonGenerator1
+      // 
+      this.dmModuleDungeonGenerator1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.dmModuleDungeonGenerator1.Location = new System.Drawing.Point(13, 13);
+      this.dmModuleDungeonGenerator1.Name = "dmModuleDungeonGenerator1";
+      this.dmModuleDungeonGenerator1.Size = new System.Drawing.Size(681, 454);
+      this.dmModuleDungeonGenerator1.TabIndex = 0;
+      // 
+      // DungeonGen
+      // 
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.BackColor = System.Drawing.SystemColors.Control;
+      this.ClientSize = new System.Drawing.Size(706, 479);
+      this.Controls.Add(this.dmModuleDungeonGenerator1);
+      this.Location = new System.Drawing.Point(12, 9);
+      this.Name = "DungeonGen";
+      this.Text = "DungeonGen";
+      this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private DmModuleDungeonGenerator dmModuleDungeonGenerator1;
+
     }
 }

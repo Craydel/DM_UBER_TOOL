@@ -61,6 +61,28 @@
     <Compile Include="Modules\Dice Roller\Dice.Designer.cs">
       <DependentUpon>Dice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Dungeon Generator\Core.cs" />
+    <Compile Include="Modules\Dungeon Generator\DmModuleDungeonGenerator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Dungeon Generator\DmModuleDungeonGenerator.designer.cs">
+      <DependentUpon>DmModuleDungeonGenerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Dungeon Generator\Entity.cs" />
+    <Compile Include="Modules\Dungeon Generator\Enums.cs" />
+    <Compile Include="Modules\Dungeon Generator\FloorTile.cs" />
+    <Compile Include="Modules\Dungeon Generator\Generator.cs" />
+    <Compile Include="Modules\Dungeon Generator\Hero.cs" />
+    <Compile Include="Modules\Dungeon Generator\Item.cs" />
+    <Compile Include="Modules\Dungeon Generator\Mob.cs" />
+    <Compile Include="Modules\Dungeon Generator\ProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Dungeon Generator\ProgressDialog.designer.cs">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Dungeon Generator\RingCell.cs" />
+    <Compile Include="Modules\Dungeon Generator\Room.cs" />
     <Compile Include="Modules\DungeonGen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +157,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\DragonGen.resx">
       <DependentUpon>DragonGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Dungeon Generator\DmModuleDungeonGenerator.resx">
+      <DependentUpon>DmModuleDungeonGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Dungeon Generator\ProgressDialog.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\DungeonGen.resx">
       <DependentUpon>DungeonGen.cs</DependentUpon>
