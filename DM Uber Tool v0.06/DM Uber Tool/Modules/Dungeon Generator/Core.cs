@@ -31,10 +31,14 @@ namespace DM_Uber_Tool
                                                          "tile_door_ns.bmp",       // door for a E/W hallway (door is vertical)
                                                          "tile_door_ns_open.bmp",  // door for a E/W hallway (door is vertical)
                                                          "tile_door_ew.bmp",       // door for a N/S hallway (door is horizontal)
-                                                         "tile_door_ew_open.bmp"   // door for a N/S hallway (door is horizontal)
+                                                         "tile_door_ew_open.bmp",  // door for a N/S hallway (door is horizontal)
+                                                         "item_floor_trap.bmp"     // trap icon for floor tile
                                                        };
     public static Bitmap[] FloorPics    = new Bitmap[FloorFiles.Length];
 
+
+
+   
     // Should be in the same order as the enum above - enum values used as index into image lists
     public static string[] EntityFiles  = new string[] { "entity_hero.bmp",
 
@@ -503,6 +507,7 @@ namespace DM_Uber_Tool
           // 8  "tile_door_ns_open.bmp",  // door for a E/W hallway (door is vertical)
           // 9  "tile_door_ew.bmp",       // door for a N/S hallway (door is horizontal)
           // 10 "tile_door_ew_open.bmp"   // door for a N/S hallway (door is horizontal)
+          // 11 "item_floor_trap.bmp"     // trap icon for floor tile
 
           bool tileVisible = hero.TileVisible(i, j);  // this call will update the visibility[,] mask for fog of war
 
@@ -518,6 +523,7 @@ namespace DM_Uber_Tool
             switch(grid[i, j].type)
             {
               case FloorType.Floor:
+              case FloorType.Trap:
                 if( tileVisible )
                   idx = (i%2==0 && j%2==0) || (i%2==1 && j%2==1) ? 3 : 4;
                 else
@@ -554,7 +560,12 @@ namespace DM_Uber_Tool
                 idx = 0;
                 break;
             }
+            
             g.DrawImage(FloorPics[idx], i*tileSize, j*tileSize, tileSize, tileSize);
+
+            // last check for traps - draw the icon for a trap on the floortile
+            if( grid[i, j].type == FloorType.Trap )
+              g.DrawImage( FloorPics[11], i*tileSize, j*tileSize, tileSize, tileSize);
           }
         }
       }

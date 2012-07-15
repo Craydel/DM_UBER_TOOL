@@ -43,7 +43,8 @@
       this.cboTileSize = new System.Windows.Forms.ComboBox();
       this.lblTileSize = new System.Windows.Forms.Label();
       this.rdoWalls = new System.Windows.Forms.RadioButton();
-      this.radioButton1 = new System.Windows.Forms.RadioButton();
+      this.rdoDoors = new System.Windows.Forms.RadioButton();
+      this.rdoTraps = new System.Windows.Forms.RadioButton();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
@@ -55,7 +56,7 @@
       this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.pictureBox1.Location = new System.Drawing.Point(146, 4);
       this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new System.Drawing.Size(331, 257);
+      this.pictureBox1.Size = new System.Drawing.Size(362, 314);
       this.pictureBox1.TabIndex = 0;
       this.pictureBox1.TabStop = false;
       this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.OnMainMapPaint);
@@ -104,9 +105,9 @@
       // 
       this.hScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.hScrollBar1.Location = new System.Drawing.Point(146, 261);
+      this.hScrollBar1.Location = new System.Drawing.Point(146, 318);
       this.hScrollBar1.Name = "hScrollBar1";
-      this.hScrollBar1.Size = new System.Drawing.Size(331, 15);
+      this.hScrollBar1.Size = new System.Drawing.Size(362, 15);
       this.hScrollBar1.TabIndex = 5;
       this.hScrollBar1.ValueChanged += new System.EventHandler(this.ScrollBar_ValueChanged);
       // 
@@ -114,9 +115,9 @@
       // 
       this.vScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.vScrollBar1.Location = new System.Drawing.Point(477, 4);
+      this.vScrollBar1.Location = new System.Drawing.Point(508, 4);
       this.vScrollBar1.Name = "vScrollBar1";
-      this.vScrollBar1.Size = new System.Drawing.Size(15, 257);
+      this.vScrollBar1.Size = new System.Drawing.Size(15, 314);
       this.vScrollBar1.TabIndex = 6;
       this.vScrollBar1.ValueChanged += new System.EventHandler(this.ScrollBar_ValueChanged);
       // 
@@ -202,20 +203,30 @@
       this.rdoWalls.Text = "Wall / Floor";
       this.rdoWalls.UseVisualStyleBackColor = true;
       // 
-      // radioButton1
+      // rdoDoors
       // 
-      this.radioButton1.Location = new System.Drawing.Point(6, 218);
-      this.radioButton1.Name = "radioButton1";
-      this.radioButton1.Size = new System.Drawing.Size(134, 17);
-      this.radioButton1.TabIndex = 41;
-      this.radioButton1.Text = "Door / Wall";
-      this.radioButton1.UseVisualStyleBackColor = true;
+      this.rdoDoors.Location = new System.Drawing.Point(6, 218);
+      this.rdoDoors.Name = "rdoDoors";
+      this.rdoDoors.Size = new System.Drawing.Size(134, 17);
+      this.rdoDoors.TabIndex = 41;
+      this.rdoDoors.Text = "Door / Wall";
+      this.rdoDoors.UseVisualStyleBackColor = true;
       // 
-      // DungeonGenerator
+      // rdoTraps
+      // 
+      this.rdoTraps.Location = new System.Drawing.Point(6, 241);
+      this.rdoTraps.Name = "rdoTraps";
+      this.rdoTraps.Size = new System.Drawing.Size(134, 17);
+      this.rdoTraps.TabIndex = 42;
+      this.rdoTraps.Text = "Trap / Floor";
+      this.rdoTraps.UseVisualStyleBackColor = true;
+      // 
+      // DmModuleDungeonGenerator
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.Controls.Add(this.radioButton1);
+      this.Controls.Add(this.rdoTraps);
+      this.Controls.Add(this.rdoDoors);
       this.Controls.Add(this.rdoWalls);
       this.Controls.Add(this.lblTileSize);
       this.Controls.Add(this.cboTileSize);
@@ -232,8 +243,8 @@
       this.Controls.Add(this.txtPathWidth);
       this.Controls.Add(this.pictureBox1);
       this.DoubleBuffered = true;
-      this.Name = "DungeonGenerator";
-      this.Size = new System.Drawing.Size(492, 279);
+      this.Name = "DmModuleDungeonGenerator";
+      this.Size = new System.Drawing.Size(523, 336);
       this.SizeChanged += new System.EventHandler(this.SizeChanged_Handler);
       this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownHandler);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -259,6 +270,7 @@
     private System.Windows.Forms.ComboBox cboTileSize;
     private System.Windows.Forms.Label lblTileSize;
     private System.Windows.Forms.RadioButton rdoWalls;
-    private System.Windows.Forms.RadioButton radioButton1;
+    private System.Windows.Forms.RadioButton rdoDoors;
+    private System.Windows.Forms.RadioButton rdoTraps;
   }
 }

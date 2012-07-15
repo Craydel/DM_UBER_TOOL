@@ -51,47 +51,44 @@ namespace DM_Uber_Tool
     /// <param name="e"></param>
     private void MouseDownHandler( object sender, MouseEventArgs e )
     {
-      if( e.Button == MouseButtons.Left )
-      {
-        // get Core.grid[] floortile
-        int x = e.X / Core.tileSize + Core.hero.x - Core.displayDistX;
-        int y = e.Y / Core.tileSize + Core.hero.y - Core.displayDistY;
+      if( Core.hero == null | Core.grid == null )
+        return;
 
-        if(  x>0
-          && y>0
-          && x<Core.grid.GetLength( 0 )-1
-          && y<Core.grid.GetLength( 1 )-1
-          )
+      // get Core.grid[] floortile
+      int x = e.X / Core.tileSize + Core.hero.x - Core.displayDistX;
+      int y = e.Y / Core.tileSize + Core.hero.y - Core.displayDistY;
+
+      if(  x>0
+        && y>0
+        && x<Core.grid.GetLength(0)-1
+        && y<Core.grid.GetLength(1)-1
+        )
+      {
+        if( e.Button == MouseButtons.Left )
         {
           if( rdoWalls.Checked )
           {
             Core.grid[x, y].type = (Core.grid[x, y].type==FloorType.Wall ? FloorType.Floor : FloorType.Wall);
           }
-          else
+          else if( rdoDoors.Checked )
           {
             Core.grid[x, y].type = (Core.grid[x, y].type==FloorType.DoorClosed ? FloorType.Wall : FloorType.DoorClosed);
           }
+          else
+          {
+            Core.grid[x, y].type = (Core.grid[x, y].type==FloorType.Floor ? FloorType.Trap : FloorType.Floor);
+          }
+
           floorPainting = Core.grid[x, y].type;
-
-          Refresh();
         }
-      }
-      else if( e.Button == MouseButtons.Right )
-      {
-        // get Core.grid[] floortile
-        int x = e.X / Core.tileSize + Core.hero.x - Core.displayDistX;
-        int y = e.Y / Core.tileSize + Core.hero.y - Core.displayDistY;
-
-        if(  x>0
-          && y>0
-          && x<Core.grid.GetLength( 0 )-1
-          && y<Core.grid.GetLength( 1 )-1
-          )
+        else if( e.Button == MouseButtons.Right )
         {
-          Core.grid[x,y].type = FloorType.Floor;
-          Refresh();
+          Core.grid[x, y].type = FloorType.Floor;
         }
+
+        Refresh();
       }
+
     }
 
 
@@ -102,37 +99,28 @@ namespace DM_Uber_Tool
     /// <param name="e"></param>
     private void MouseMoveHandler( object sender, MouseEventArgs e )
     {
-      if( e.Button == MouseButtons.Left )
-      {
-        // get Core.grid[] floortile
-        int x = e.X / Core.tileSize + Core.hero.x - Core.displayDistX;
-        int y = e.Y / Core.tileSize + Core.hero.y - Core.displayDistY;
+      if( Core.hero == null | Core.grid == null )
+        return;
 
-        if(  x>0
-          && y>0
-          && x<Core.grid.GetLength( 0 )-1
-          && y<Core.grid.GetLength( 1 )-1
-          )
+      // get Core.grid[] floortile
+      int x = e.X / Core.tileSize + Core.hero.x - Core.displayDistX;
+      int y = e.Y / Core.tileSize + Core.hero.y - Core.displayDistY;
+         
+      if(  x>0
+        && y>0
+        && x<Core.grid.GetLength(0)-1
+        && y<Core.grid.GetLength(1)-1
+        )
+      {
+        if( e.Button == MouseButtons.Left )
         {
           Core.grid[x, y].type = floorPainting;
-          Refresh();
         }
-      }
-      else if( e.Button == MouseButtons.Right )
-      {
-        // get Core.grid[] floortile
-        int x = e.X / Core.tileSize + Core.hero.x - Core.displayDistX;
-        int y = e.Y / Core.tileSize + Core.hero.y - Core.displayDistY;
-
-        if(  x>0
-          && y>0
-          && x<Core.grid.GetLength( 0 )-1
-          && y<Core.grid.GetLength( 1 )-1
-          )
+        else if( e.Button == MouseButtons.Right )
         {
           Core.grid[x, y].type = FloorType.Floor;
-          Refresh();
         }
+        Refresh();
       }
     }
 
